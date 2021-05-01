@@ -44,6 +44,29 @@ class Homepage extends StatelessWidget {
                 );
               },
               child: Text('Show Dialogbox'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Get.bottomSheet(
+                  Container(
+                    color: Colors.blue[200],
+                    height: MediaQuery.of(context).size.height * 1.5,
+                    child: Column(
+                      children: [
+                        CircularProgressIndicator(),
+                        Icon(Icons.message)
+                      ],
+                    ),
+                  ),
+                  // isDismissible: false,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  backgroundColor: Colors.black,
+                  barrierColor: Colors.white24,
+                );
+              },
+              child: Text('Show BottomSheet'),
             )
           ],
         ),
