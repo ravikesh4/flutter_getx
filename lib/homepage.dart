@@ -22,14 +22,28 @@ class Homepage extends StatelessWidget {
                     snackPosition: SnackPosition.BOTTOM,
                     // backgroundColor: Colors.red,
                     margin: EdgeInsets.all(10),
-                    // mainButton: TextButton(
-                    //   onPressed: () {},
-                    //   child: Text('Done'),
-                    // ),
+                    mainButton: TextButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text('Done'),
+                    ),
                     isDismissible: true,
-                    duration: Duration(milliseconds: 1000));
+                    duration: Duration(milliseconds: 5000));
               },
               child: Text('Show Snackbar'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Get.defaultDialog(
+                  title: 'Are you sure?',
+                  content: Text('By clicking data will be deleted'),
+                  textCancel: 'No',
+                  textConfirm: 'Yes',
+                  onConfirm: () => Get.back(),
+                );
+              },
+              child: Text('Show Dialogbox'),
             )
           ],
         ),
