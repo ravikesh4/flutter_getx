@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  String status = "online";
+  bool status = true;
 
   void updateStatus(newStatus) {
     status = newStatus;

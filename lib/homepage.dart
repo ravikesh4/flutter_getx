@@ -21,11 +21,11 @@ class Homepage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GetBuilder<HomeController>(builder: (_) {
-              return Text(homeController.status);
+              return Text(homeController.status ? 'Online' : 'Offline');
             }),
             RaisedButton(
               onPressed: () {
-                homeController.updateStatus('Offline');
+                homeController.updateStatus(!homeController.status);
               },
               child: Text('Update Status'),
             )
