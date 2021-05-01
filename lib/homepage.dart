@@ -28,6 +28,9 @@ class Homepage extends StatelessWidget {
               print('status');
               return Text(homeController.status.value);
             }),
+            Obx(() {
+              return Text("Obs data ${homeController.followers}");
+            }),
             RaisedButton(
               onPressed: () {
                 homeController.updateStatus('Offline');
