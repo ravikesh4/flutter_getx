@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:get/get.dart';
+import 'package:getx_learn/controller/homecontroller.dart';
 import 'package:getx_learn/shop.dart';
 
 class Homepage extends StatelessWidget {
@@ -8,6 +9,8 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController homeController = Get.put(HomeController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Getx Appbar'),
@@ -17,11 +20,14 @@ class Homepage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            GetBuilder<HomeController>(builder: (_) {
+              return Text(homeController.status);
+            }),
             RaisedButton(
               onPressed: () {
-                Get.to(Shop(), arguments: "Flutter");
+                homeController.updateStatus('Offline');
               },
-              child: Text('Show Shop'),
+              child: Text('Update Status'),
             )
           ],
         ),
