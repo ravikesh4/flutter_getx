@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  bool status = true;
-  int followers = 50;
+  var status = "Online".obs;
+  var followers = 50.obs;
 
-  void updateStatus(newStatus) {
-    status = newStatus;
-    update(['status']);
+  void updateStatus(String newStatus) {
+    status.value = newStatus;
+    update();
   }
 
   void updateFollowers() {
     followers += 1;
-    update(['follower']);
+    update();
   }
 }
