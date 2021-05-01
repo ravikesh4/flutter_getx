@@ -20,15 +20,30 @@ class Homepage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GetBuilder<HomeController>(builder: (_) {
-              return Text(homeController.status ? 'Online' : 'Offline');
-            }),
+            GetBuilder<HomeController>(
+                id: 'follower',
+                builder: (_) {
+                  print('folloers');
+                  return Text(homeController.followers.toString());
+                }),
+            GetBuilder<HomeController>(
+                id: 'status',
+                builder: (_) {
+                  print('status');
+                  return Text(homeController.status ? 'Online' : 'Offline');
+                }),
             RaisedButton(
               onPressed: () {
                 homeController.updateStatus(!homeController.status);
               },
               child: Text('Update Status'),
-            )
+            ),
+            RaisedButton(
+              onPressed: () {
+                homeController.updateFollowers();
+              },
+              child: Text('Followers'),
+            ),
           ],
         ),
       ),
